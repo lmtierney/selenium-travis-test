@@ -113,8 +113,9 @@ def is_connectable(port, host="localhost"):
         socket_ = socket.create_connection((host, port), 1)
         LOGGER.info('socket: {}'.format(socket_))
         result = True
-    except socket.error:
+    except socket.error as e:
         LOGGER.info('is_connectable error')
+        LOGGER.info('error: {}'.format(e))
         result = False
     finally:
         LOGGER.info('finally: {}'.format(socket_))
