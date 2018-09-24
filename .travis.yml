@@ -22,6 +22,7 @@ before_script:
   - chromedriver --version
 
 script:
+  - cat /etc/hosts
   - mv remote_connection.py /home/travis/virtualenv/python3.6.3/lib/python3.6/site-packages/selenium/webdriver/remote/remote_connection.py
   - mv utils.py /home/travis/virtualenv/python3.6.3/lib/python3.6/site-packages/selenium/webdriver/common/utils.py
   - python selenium_test.py
