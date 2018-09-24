@@ -199,8 +199,8 @@ class RemoteConnection(object):
         LOGGER.info('init')
         if parsed_url.hostname and resolve_ip:
             LOGGER.info('parsed_url.hostname and resolve_ip')
-            LOGGER.info('port: {}'.format(port))
             port = parsed_url.port or None
+            LOGGER.info('port: {}'.format(port))
             if parsed_url.scheme == "https":
                 LOGGER.info('https')
                 ip = parsed_url.hostname
