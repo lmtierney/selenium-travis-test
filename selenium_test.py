@@ -14,7 +14,8 @@ def main():
     options.add_argument('headless')
     options.add_argument('no-sandbox')
 
-    browser = webdriver.Chrome(chrome_options=options, service_args=['--verbose'])
+    browser = webdriver.Chrome(chrome_options=options, service_args=['--verbose'],
+                               service_log_path='chromedriver.log')
     browser.get('https://www.google.com/')
 
     if 'Google' not in browser.title:
