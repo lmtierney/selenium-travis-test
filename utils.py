@@ -19,7 +19,10 @@
 The Utils methods.
 """
 import socket
+import logging
 from selenium.webdriver.common.keys import Keys
+
+LOGGER = logging.getLogger(__name__)
 
 try:
     basestring
@@ -72,9 +75,12 @@ def find_connectable_ip(host, port=None):
             connectable = is_connectable(port, sockaddr[0])
 
         if connectable and family == socket.AF_INET:
+            LOGGER.info('connectable and family == socket.AF_INET')
             return sockaddr[0]
         if connectable and not ip and family == socket.AF_INET6:
+            LOGGER.info('connectable and not ip and family == socket.AF_INET6')
             ip = sockaddr[0]
+    LOGGER.info('ip: {}'.format(ip))
     return ip
 
 
@@ -103,14 +109,19 @@ def is_connectable(port, host="localhost"):
     """
     socket_ = None
     try:
+        LOGGER.info('try')
         socket_ = socket.create_connection((host, port), 1)
+        LOGGER.info('socket: {}'.format(socket_))
         result = True
     except socket.error:
+        LOGGER.info('is_connectable error')
         result = False
     finally:
+        LOGGER.info('finally: {}'.format(socket_))
         if socket_:
-            socket_.shutdown(socket.SHUT_RDWR)
+            LOGGER.info('finally yes socket_')
             socket_.close()
+    LOGGER.info('result: {}'.format(result))
     return result
 
 
