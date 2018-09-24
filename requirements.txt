@@ -1,2 +1,2 @@
 # latest selenium from pip (master branch) trigger travis-ci.org
-selenium==3.8.0
+selenium==3.8.1
