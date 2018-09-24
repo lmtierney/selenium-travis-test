@@ -22,4 +22,5 @@ before_script:
   - chromedriver --version
 
 script:
+  - mv service.py /home/travis/virtualenv/python3.6.3/lib/python3.6/site-packages/selenium/webdriver/common/service.py
   - python selenium_test.py
