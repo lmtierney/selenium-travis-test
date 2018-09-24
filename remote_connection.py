@@ -198,11 +198,8 @@ class RemoteConnection(object):
         addr = parsed_url.hostname
         LOGGER.info('init')
         if parsed_url.hostname and resolve_ip:
-            LOGGER.info('parsed_url.hostname and resolve_ip')
             port = parsed_url.port or None
-            LOGGER.info('port: {}'.format(port))
             if parsed_url.scheme == "https":
-                LOGGER.info('https')
                 ip = parsed_url.hostname
             elif port and not common_utils.is_connectable(port, parsed_url.hostname):
                 ip = None
@@ -210,12 +207,9 @@ class RemoteConnection(object):
                             '{}'.format(port, parsed_url.hostname))
             else:
                 LOGGER.info('else')
-                result = common_utils.is_connectable(port, parsed_url.hostname)
-                LOGGER.info('try again result: {}'.format(result))
                 ip = common_utils.find_connectable_ip(parsed_url.hostname,
                                                       port=port)
             if ip:
-                LOGGER.info('if ip')
                 netloc = ip
                 addr = netloc
                 if parsed_url.port:
