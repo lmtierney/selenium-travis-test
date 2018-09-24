@@ -1,6 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+import logging
+logging.basicConfig(level=logging.DEBUG)
+
 from __future__ import unicode_literals, print_function
 
 import sys

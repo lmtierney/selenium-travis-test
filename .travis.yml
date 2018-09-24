@@ -22,5 +22,5 @@ before_script:
   - chromedriver --version
 
 script:
-  - mv service.py /home/travis/virtualenv/python3.6.3/lib/python3.6/site-packages/selenium/webdriver/common/service.py
+  - mv remote_connection.py /home/travis/virtualenv/python3.6.3/lib/python3.6/site-packages/selenium/webdriver/remote/remote_connection.py
   - python selenium_test.py
