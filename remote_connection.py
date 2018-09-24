@@ -196,7 +196,6 @@ class RemoteConnection(object):
         self.keep_alive = keep_alive
         parsed_url = parse.urlparse(remote_server_addr)
         addr = parsed_url.hostname
-        LOGGER.info('init')
         if parsed_url.hostname and resolve_ip:
             port = parsed_url.port or None
             if parsed_url.scheme == "https":
@@ -206,7 +205,6 @@ class RemoteConnection(object):
                 LOGGER.info('Could not connect to port {} on host '
                             '{}'.format(port, parsed_url.hostname))
             else:
-                LOGGER.info('else')
                 ip = common_utils.find_connectable_ip(parsed_url.hostname,
                                                       port=port)
             if ip:
@@ -227,7 +225,6 @@ class RemoteConnection(object):
                 LOGGER.info('Could not get IP address for host: %s' %
                             parsed_url.hostname)
 
-        LOGGER.info('post-conditional')
         self._url = remote_server_addr
         if keep_alive:
             self._conn = httplib.HTTPConnection(
