@@ -210,7 +210,6 @@ class RemoteConnection(object):
                             '{}'.format(port, parsed_url.hostname))
             else:
                 LOGGER.info('else')
-                LOGGER.info('post-second-check')
                 ip = common_utils.find_connectable_ip(parsed_url.hostname,
                                                       port=port)
             if ip:
