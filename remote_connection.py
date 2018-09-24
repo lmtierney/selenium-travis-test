@@ -211,7 +211,7 @@ class RemoteConnection(object):
             else:
                 LOGGER.info('else')
                 LOGGER.info('trying is_connectable again')
-                LOGGER.info('is? {}'.format(common_utils.is_connectable(port, parsed_url.hostname))
+                LOGGER.info('is? {}'.format(common_utils.is_connectable(port, parsed_url.hostname)))
                 LOGGER.info('post-second-check')
                 ip = common_utils.find_connectable_ip(parsed_url.hostname,
                                                       port=port)
