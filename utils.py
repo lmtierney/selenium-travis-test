@@ -109,7 +109,7 @@ def is_connectable(port, host="localhost"):
         result = False
     finally:
         if socket_:
-            socket_.shutdown()
+            socket_.shutdown(socket_.SHUT_RDWR)
             socket_.close()
     return result
 
