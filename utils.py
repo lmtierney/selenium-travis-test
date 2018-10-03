@@ -19,10 +19,7 @@
 The Utils methods.
 """
 import socket
-import logging
 from selenium.webdriver.common.keys import Keys
-
-LOGGER = logging.getLogger(__name__)
 
 try:
     basestring
@@ -108,7 +105,7 @@ def is_connectable(port, host="localhost"):
     try:
         socket_ = socket.create_connection((host, port), 1)
         result = True
-    except socket.error as e:
+    except (socket.error, ConnectionResetError):
         result = False
     finally:
         if socket_:
